@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2018-07-19T17:53:36.995+08:00"
+        cq:lastModified="{Date}2018-07-20T14:25:31.087+08:00"
         cq:lastModifiedBy="admin"
         cq:template="/apps/aem-tools/template/Page Asset Reference"
         jcr:primaryType="cq:PageContent"
         jcr:title="Page Asset Reference Packager"
-        sling:resourceType="/apps/aem-tools/component/tool-pages"/>
+        sling:resourceType="/apps/aem-tools/component/tool-pages"
+        preview="true">
+        <configuration
+            jcr:lastModified="{Date}2018-07-20T14:25:31.084+08:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="aem-tools/component/assetReferences"
+            conflictResolution="IncrementVersion"
+            packageDescription="My Package initially defined by a AEM Tools - Page Asset Packager Configuration."
+            packageGroupName="aem-tools"
+            packageName="my-package"
+            packageVersion="1.0.0"
+            password="admin"
+            targetAttr="[src]"
+            targetEle="[img,video]"
+            targetPath=""
+            username="admin"/>
+    </jcr:content>
 </jcr:root>
