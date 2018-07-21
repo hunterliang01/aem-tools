@@ -4,7 +4,7 @@
 
 Find all asset references in a page or under content folder(s), and create package definition in package manager
 
-##Installing
+Installing
 --------
 
 
