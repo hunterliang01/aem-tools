@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    activeTab="0"
+    title="Page Asset Packager Configuration"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tab1
+            jcr:primaryType="cq:Widget"
+            title="Page Asset Packager Configuration"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+            	<username
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="admin"
+                    fieldDescription="user who have access to create packages. [ Default: admin ]"
+                    fieldLabel="username"
+                    name="./username"
+                    xtype="textfield"/>
+                <password
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="password"
+                    name="./password"
+                    xtype="password"/>
+                <package-name
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="my-package"
+                    fieldDescription="Name of the package to created. [ Default: my-package ]"
+                    fieldLabel="Package name"
+                    name="./packageName"
+                    xtype="textfield"/>
+                <package-group-name
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="aem-tools"
+                    fieldDescription="Package group to assign this package to. [ Default: aem-tools ]"
+                    fieldLabel="Package group name"
+                    name="./packageGroupName"
+                    xtype="textfield"/>
+                <package-version
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="1.0.0"
+                    fieldDescription="Package version to assign this package. This value is ignored is Conflict Resolution is set to IncrementValue. [ Default: 1.0.0 ]"
+                    fieldLabel="Package version"
+                    name="./packageVersion"
+                    xtype="textfield"/>
+                <package-description
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="This Package initially defined by a AEM Tools - Page Asset Packager Configuration."
+                    fieldDescription="Package description. Enter the purpose and scope of this package for future reference."
+                    fieldLabel="Package description"
+                    name="./packageDescription"
+                    xtype="textarea"/>
+                <conflict-resolution
+                    jcr:primaryType="cq:Widget"
+                    defaultValue="IncrementVersion"
+                    fieldDescription="Determines how package creation will be handled in the event of an existing package of the same Package group, name and version. [ Default: IncrementVersion ]"
+                    fieldLabel="Conflict resolution"
+                    name="./conflictResolution"
+                    type="select"
+                    xtype="selection">
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <replace
+                            jcr:primaryType="nt:unstructured"
+                            text="Replace"
+                            value="Replace"/>
+                        <increment-version
+                            jcr:primaryType="nt:unstructured"
+                            text="Increment Version"
+                            value="IncrementVersion"/>
+                        <none
+                            jcr:primaryType="nt:unstructured"
+                            text="None"
+                            value="None"/>
+                    </options>
+                </conflict-resolution>
+                <target-paths
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Click the '+' to add a resource(folder or page)."
+                    fieldLabel="Target path(folder or page)"
+                    name="./targetPath"
+                    xtype="multifield">
+                    <fieldConfig
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        displayField="path"
+                        xtype="pathfield"/>
+                </target-paths>
+                
+                <target-element
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Click the '+' to add a HTML Tag."
+                    fieldLabel="Target Element"
+                    name="./targetEle"
+                    xtype="multifield">
+                    <fieldConfig
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        displayField="element"
+                        xtype="textfield"/>
+                </target-element>
+                
+                <target-attribute
+                    jcr:primaryType="cq:Widget"
+                    fieldDescription="Click the '+' to add a attribute of HTML Tag."
+                    fieldLabel="Target Attribute"
+                    name="./targetAttr"
+                    xtype="multifield">
+                    <fieldConfig
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        displayField="attribute"
+                        xtype="textfield"/>
+                </target-attribute>
+            </items>
+        </tab1>
+    </items>
+</jcr:root>
