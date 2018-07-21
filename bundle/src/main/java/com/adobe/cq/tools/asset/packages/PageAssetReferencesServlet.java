@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -128,12 +127,15 @@ public class PageAssetReferencesServlet extends SlingAllMethodsServlet {
 				}
 				
 				//Find resurces from child pages 
-				String pageResJcrSql2 = "select * from [cq:Page] as s where ISDESCENDANTNODE(s,'"+pagePath+"')";
-                Iterator<Resource> pageRes = resourceResolver.findResources(pageResJcrSql2, Query.JCR_SQL2);
-                while (pageRes.hasNext()) {
-                	Resource res = pageRes.next();
-                	String path = res.getPath() + ".html";
-                	findPathFilterSets(pathFilterSets,httpclient,localContext, path, targetEles, targetAttrs);
+				String pageResJcrSql2 = "select * from [cq:PageContent] as s where ISDESCENDANTNODE(s,'"+pagePath+"')";
+                Iterator<Resource> pageContentRes = resourceResolver.findResources(pageResJcrSql2, Query.JCR_SQL2);
+                while (pageContentRes.hasNext()) {
+                	Resource res = pageContentRes.next();
+                	Page resPage = res.getParent().adaptTo(Page.class);
+                	if(resPage!=null&&resPage.isValid()){
+	                	String path = resPage.getPath() + ".html";
+	                	findPathFilterSets(pathFilterSets,httpclient,localContext, path, targetEles, targetAttrs);
+                	}
 				}
 				
                 //Find resurces from file references of child pages 
